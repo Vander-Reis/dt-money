@@ -1,7 +1,9 @@
-import { useContext } from 'react'
 import { TransactionsContext } from '../context/TransactionsContext'
+import { useContextSelector } from 'use-context-selector'
 export function useSummary() {
-  const { transactions } = useContext(TransactionsContext)
+  const transactions = useContextSelector(TransactionsContext, (context) => {
+    return context.transactions
+  })
 
   // novo objeto retornado do reduce = {income: 0, outcome: 0, total: 0}
 
